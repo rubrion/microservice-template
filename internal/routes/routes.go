@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"microservice-template/internal/controllers"
 	"github.com/gin-gonic/gin"
+	"microservice-template/internal/controllers"
 )
 
 func RegisterRoutes(router *gin.Engine) {

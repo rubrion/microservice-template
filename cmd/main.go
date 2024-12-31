@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"log"
 	"microservice-template/internal/routes"
 	"microservice-template/pkg/logger"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
