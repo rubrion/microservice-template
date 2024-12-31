@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: microservice-template
+    command: [ "./bin/server" ]
+    volumes:
+      - .:/app
+      - /app/bin
+    ports:
+      - "8080:8080"
+    environment:
+      - PROJECT_NAME=microservice-template
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    container_name: database
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sampledb
