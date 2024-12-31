@@ -42,6 +42,17 @@ jobs:
       run: |
         docker build -t microservice-template:test .
 
-    - name: Run Container Validation
+    - name: Start Container
       run: |
-        docker run --rm microservice-template:test
+        docker run -d --name microservice-template-container -p 8080:8080 microservice-template:test
+
+    - name: Validate Container
+      run: |
+        curl -f http://localhost:8080/api/example || exit 1
+
+    - name: Stop and Remove Container
+      if: always()
+      run: |
+        docker stop microservice-template-container
+        docker rm microservice-template-container
+
