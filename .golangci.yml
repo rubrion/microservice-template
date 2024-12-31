@@ -1,0 +1,15 @@
+run:
+  timeout: 5m
+
+issues:
+  exclude-files:
+    - generated.go
+  exclude-dirs:
+    - testdata
+
+linters:
+  enable:
+    - revive
+    - gofmt
+    - gosimple
+    - staticcheck
